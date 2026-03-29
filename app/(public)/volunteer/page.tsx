@@ -28,7 +28,7 @@ export default function VolunteerPage() {
     if (!formData.email.trim()) newErrors.email = 'Email is required';
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = 'Invalid email address';
     if (!formData.phone.trim()) newErrors.phone = 'Phone number is required';
-    else if (!/^\+?[\d\s-]{10,}$/.test(formData.phone)) newErrors.phone = 'Invalid phone number';
+    else if (!/^\+?[0-9]{10,15}$/.test(formData.phone.replace(/[\s\-().]/g, ''))) newErrors.phone = 'Invalid phone number (10–15 digits required)';
     if (!formData.message.trim()) newErrors.message = 'Message is required';
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;

@@ -12,11 +12,15 @@ export function middleware(request: NextRequest) {
       return NextResponse.next();
     }
 
-    // Cookie names set by @supabase/ssr for the auth session token
-    const accessToken = request.cookies.get('sb-access-token')?.value ||
-      request.cookies.get('supabase-auth-token')?.value;
+    // @supabase/ssr sets a cookie named `sb-<project-ref>-auth-token`.
+    // We detect any cookie whose name starts with "sb-" and ends with "-auth-token"
+    // to stay compatible across different Supabase project refs.
+    const cookies = request.cookies.getAll();
+    const hasAuthCookie = cookies.some(
+      (c) => c.name.startsWith('sb-') && c.name.endsWith('-auth-token') && c.value,
+    );
 
-    if (!accessToken) {
+    if (!hasAuthCookie) {
       const loginUrl = new URL('/login', request.url);
       loginUrl.searchParams.set('redirectTo', pathname);
       return NextResponse.redirect(loginUrl);
