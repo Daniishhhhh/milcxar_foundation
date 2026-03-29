@@ -12,6 +12,7 @@ export function middleware(request: NextRequest) {
       return NextResponse.next();
     }
 
+    // Cookie names set by @supabase/ssr for the auth session token
     const accessToken = request.cookies.get('sb-access-token')?.value ||
       request.cookies.get('supabase-auth-token')?.value;
 
