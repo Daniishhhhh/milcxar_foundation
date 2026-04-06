@@ -36,8 +36,9 @@ export async function POST(request: NextRequest) {
     if (!emailRegex.test(email)) {
       return NextResponse.json({ error: 'Invalid email address' }, { status: 400 });
     }
+    const normalizedPhone = String(phone).replace(/[\s\-().]/g, '');
     const phoneRegex = /^\+?[0-9]{10,15}$/;
-    if (!phoneRegex.test(String(phone).replace(/[\s\-().]/g, ''))) {
+    if (!phoneRegex.test(normalizedPhone)) {
       return NextResponse.json({ error: 'Invalid phone number (10–15 digits required)' }, { status: 400 });
     }
     const postalCodeRegex = /^[a-zA-Z0-9 -]{4,10}$/;
@@ -54,7 +55,7 @@ export async function POST(request: NextRequest) {
       const { error } = await supabase.from('volunteers').insert([{
         name,
         email,
-        phone,
+        phone: normalizedPhone,
         message,
         field_of_interest,
         qualifications,
