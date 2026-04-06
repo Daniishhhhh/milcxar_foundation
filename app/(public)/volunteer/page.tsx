@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Button from '@/components/Button';
 import Card from '@/components/Card';
 import FormInput from '@/components/FormInput';
+import { FIELD_OF_INTEREST_OPTIONS, QUALIFICATION_OPTIONS } from '@/lib/volunteer-options';
 
 interface FormData {
   name: string;
@@ -31,9 +32,6 @@ interface FormErrors {
   postal_code?: string;
   message?: string;
 }
-
-const interestOptions = ['Education', 'Health', 'Environment', 'Disaster Relief', 'Skill Development'];
-const qualificationOptions = ['Schooling', 'Undergraduate', 'Graduate', 'Postgraduate', 'Other'];
 
 export default function VolunteerPage() {
   const [formData, setFormData] = useState<FormData>({
@@ -183,7 +181,7 @@ export default function VolunteerPage() {
                     className={`w-full px-4 py-2.5 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors ${errors.field_of_interest ? 'border-red-500' : 'border-gray-300'}`}
                   >
                     <option value="">Select an option</option>
-                    {interestOptions.map((option) => (
+                    {FIELD_OF_INTEREST_OPTIONS.map((option) => (
                       <option key={option} value={option}>{option}</option>
                     ))}
                   </select>
@@ -194,7 +192,7 @@ export default function VolunteerPage() {
               <div className="flex flex-col gap-2">
                 <label className="text-sm font-medium text-gray-700">Qualification *</label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-                  {qualificationOptions.map((option) => (
+                  {QUALIFICATION_OPTIONS.map((option) => (
                     <label key={option} className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700">
                       <input
                         type="checkbox"

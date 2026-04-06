@@ -12,8 +12,8 @@ export default function Footer() {
               We serve vulnerable communities through education, healthcare, disaster response, environmental action, and livelihood programs that build dignity and long-term resilience.
             </p>
             <div className="mt-5 space-y-2 text-sm text-slate-400">
-              <p>Email: hello@milcxarfoundation.org</p>
-              <p>Phone: +91 90000 00000</p>
+              <p>Email: contact@milcxarfoundation.org</p>
+              <p>Phone: +91 79 4100 2145</p>
               <p>Address: Ahmedabad, Gujarat, India</p>
             </div>
           </div>

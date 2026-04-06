@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { FIELD_OF_INTEREST_OPTIONS, QUALIFICATION_OPTIONS } from '@/lib/volunteer-options';
 
 export async function POST(request: NextRequest) {
   try {
@@ -32,6 +33,14 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Please complete all required fields before submitting.' }, { status: 400 });
     }
 
+    if (!FIELD_OF_INTEREST_OPTIONS.includes(field_of_interest)) {
+      return NextResponse.json({ error: 'Please select a valid field of interest.' }, { status: 400 });
+    }
+
+    if (!qualifications.every((value: unknown) => typeof value === 'string' && QUALIFICATION_OPTIONS.includes(value as (typeof QUALIFICATION_OPTIONS)[number]))) {
+      return NextResponse.json({ error: 'Please select valid qualification options.' }, { status: 400 });
+    }
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return NextResponse.json({ error: 'Invalid email address' }, { status: 400 });
@@ -55,7 +64,7 @@ export async function POST(request: NextRequest) {
       const { error } = await supabase.from('volunteers').insert([{
         name,
         email,
-        phone: normalizedPhone,
+        phone: String(phone),
         message,
         field_of_interest,
         qualifications,
