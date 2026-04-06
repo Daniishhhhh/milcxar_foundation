@@ -30,16 +30,23 @@ export default async function AdminSubmissionsPage() {
               </thead>
               <tbody className="divide-y divide-gray-100">
                 {volunteers.map((v) => (
+                  (() => {
+                    const fullAddress = [v.street_address, v.city, v.state, v.postal_code].filter(Boolean).join(', ');
+                    return (
                   <tr key={v.id} className="hover:bg-gray-50">
                     <td className="px-6 py-4 font-medium text-gray-900 text-sm">{v.name}</td>
                     <td className="px-6 py-4 text-gray-600 text-sm">{v.email}</td>
                     <td className="px-6 py-4 text-gray-600 text-sm">{v.phone}</td>
                     <td className="px-6 py-4 text-gray-600 text-sm">{v.field_of_interest || '-'}</td>
                     <td className="px-6 py-4 text-gray-600 text-sm">{v.qualifications?.join(', ') || '-'}</td>
-                    <td className="px-6 py-4 text-gray-600 text-sm max-w-xs truncate">{[v.street_address, v.city, v.state, v.postal_code].filter(Boolean).join(', ') || '-'}</td>
+                    <td className="px-6 py-4 text-gray-600 text-sm max-w-xs truncate" title={fullAddress || '-'}>
+                      {fullAddress || '-'}
+                    </td>
                     <td className="px-6 py-4 text-gray-600 text-sm max-w-xs truncate">{v.message}</td>
                     <td className="px-6 py-4 text-gray-400 text-xs">{new Date(v.created_at).toLocaleDateString()}</td>
                   </tr>
+                    );
+                  })()
                 ))}
               </tbody>
             </table>

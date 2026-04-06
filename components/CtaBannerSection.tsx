@@ -16,7 +16,7 @@ export default function CtaBannerSection() {
         >
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             <div>
-              <p className="uppercase text-xs tracking-[0.22em] text-blue-100">Take Action Today</p>
+              <p className="uppercase text-xs tracking-widest text-blue-100">Take Action Today</p>
               <h3 className="mt-2 text-3xl sm:text-4xl font-bold">Help us reach more families with dignity and care.</h3>
               <p className="mt-3 text-blue-100 max-w-2xl">Your contribution, time, or partnership can directly support life-changing programs in education, healthcare, and livelihoods.</p>
             </div>
