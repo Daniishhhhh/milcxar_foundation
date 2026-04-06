@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { motion } from 'framer-motion';
 import Button from '@/components/Button';
 import Card from '@/components/Card';
@@ -151,7 +151,7 @@ export default function VolunteerPage() {
                   label="Full Name *"
                   type="text"
                   value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, name: e.target.value })}
                   error={errors.name}
                   placeholder="Your full name"
                 />
@@ -159,7 +159,7 @@ export default function VolunteerPage() {
                   label="Email Address *"
                   type="email"
                   value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, email: e.target.value })}
                   error={errors.email}
                   placeholder="you@example.com"
                 />
@@ -170,7 +170,7 @@ export default function VolunteerPage() {
                   label="Phone Number *"
                   type="tel"
                   value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, phone: e.target.value })}
                   error={errors.phone}
                   placeholder="+91 98765 43210"
                 />
@@ -179,7 +179,7 @@ export default function VolunteerPage() {
                   <select
                     id="field_of_interest"
                     value={formData.field_of_interest}
-                    onChange={(e) => setFormData({ ...formData, field_of_interest: e.target.value })}
+                    onChange={(e: ChangeEvent<HTMLSelectElement>) => setFormData({ ...formData, field_of_interest: e.target.value })}
                     className={`w-full px-4 py-2.5 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors ${errors.field_of_interest ? 'border-red-500' : 'border-gray-300'}`}
                   >
                     <option value="">Select an option</option>
@@ -215,7 +215,7 @@ export default function VolunteerPage() {
                   label="Street Address *"
                   type="text"
                   value={formData.street_address}
-                  onChange={(e) => setFormData({ ...formData, street_address: e.target.value })}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, street_address: e.target.value })}
                   error={errors.street_address}
                   placeholder="House number, street name"
                 />
@@ -224,21 +224,21 @@ export default function VolunteerPage() {
                     label="City *"
                     type="text"
                     value={formData.city}
-                    onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, city: e.target.value })}
                     error={errors.city}
                   />
                   <FormInput
                     label="State *"
                     type="text"
                     value={formData.state}
-                    onChange={(e) => setFormData({ ...formData, state: e.target.value })}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, state: e.target.value })}
                     error={errors.state}
                   />
                   <FormInput
                     label="Postal Code *"
                     type="text"
                     value={formData.postal_code}
-                    onChange={(e) => setFormData({ ...formData, postal_code: e.target.value })}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, postal_code: e.target.value })}
                     error={errors.postal_code}
                     placeholder="380001"
                   />
@@ -248,7 +248,7 @@ export default function VolunteerPage() {
               <FormInput
                 label="Why do you want to volunteer? *"
                 value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setFormData({ ...formData, message: e.target.value })}
                 error={errors.message}
                 placeholder="Tell us about your skills and motivation..."
                 textarea
