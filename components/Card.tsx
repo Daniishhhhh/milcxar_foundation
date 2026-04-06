@@ -12,8 +12,9 @@ interface CardProps {
 export default function Card({ children, className = '', hover = false }: CardProps) {
   return (
     <motion.div
-      whileHover={hover ? { y: -4, boxShadow: '0 10px 30px rgba(0,0,0,0.1)' } : {}}
-      className={`bg-white rounded-xl shadow-md overflow-hidden ${className}`}
+      whileHover={hover ? { y: -6, boxShadow: '0 16px 40px rgba(15, 23, 42, 0.12)' } : undefined}
+      transition={{ duration: 0.2 }}
+      className={`rounded-2xl border border-blue-100/70 bg-white/95 shadow-sm backdrop-blur ${className}`}
     >
       {children}
     </motion.div>

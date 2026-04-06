@@ -21,6 +21,9 @@ export default async function AdminSubmissionsPage() {
                   <th className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase">Name</th>
                   <th className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase">Email</th>
                   <th className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase">Phone</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase">Interest</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase">Qualification</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase">Address</th>
                   <th className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase">Message</th>
                   <th className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase">Date</th>
                 </tr>
@@ -31,6 +34,9 @@ export default async function AdminSubmissionsPage() {
                     <td className="px-6 py-4 font-medium text-gray-900 text-sm">{v.name}</td>
                     <td className="px-6 py-4 text-gray-600 text-sm">{v.email}</td>
                     <td className="px-6 py-4 text-gray-600 text-sm">{v.phone}</td>
+                    <td className="px-6 py-4 text-gray-600 text-sm">{v.field_of_interest || '-'}</td>
+                    <td className="px-6 py-4 text-gray-600 text-sm">{v.qualifications?.join(', ') || '-'}</td>
+                    <td className="px-6 py-4 text-gray-600 text-sm max-w-xs truncate">{[v.street_address, v.city, v.state, v.postal_code].filter(Boolean).join(', ') || '-'}</td>
                     <td className="px-6 py-4 text-gray-600 text-sm max-w-xs truncate">{v.message}</td>
                     <td className="px-6 py-4 text-gray-400 text-xs">{new Date(v.created_at).toLocaleDateString()}</td>
                   </tr>
