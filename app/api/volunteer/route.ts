@@ -64,7 +64,7 @@ export async function POST(request: NextRequest) {
       const { error } = await supabase.from('volunteers').insert([{
         name,
         email,
-        phone: String(phone),
+        phone: normalizedPhone,
         message,
         field_of_interest,
         qualifications,
