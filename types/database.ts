@@ -3,6 +3,12 @@ export interface Volunteer {
   name: string;
   email: string;
   phone: string;
+  field_of_interest: string;
+  qualifications: string[];
+  street_address: string;
+  city: string;
+  state: string;
+  postal_code: string;
   message: string;
   created_at: string;
 }
