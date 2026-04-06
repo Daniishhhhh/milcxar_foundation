@@ -41,7 +41,7 @@ export default function HeroSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <Button href="/volunteer" variant="primary" size="lg" className="!bg-white !text-blue-900 hover:!bg-blue-50">
+          <Button href="/volunteer" variant="inverse" size="lg">
             Join Us
           </Button>
           <Button href="/donate" variant="secondary" size="lg">

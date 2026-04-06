@@ -45,6 +45,7 @@ export async function POST(request: NextRequest) {
     if (!emailRegex.test(email)) {
       return NextResponse.json({ error: 'Invalid email address' }, { status: 400 });
     }
+    // Normalize user-entered formatting while preserving optional international prefix for consistent storage.
     const normalizedPhone = String(phone).replace(/[\s\-().]/g, '');
     const phoneRegex = /^\+?[0-9]{10,15}$/;
     if (!phoneRegex.test(normalizedPhone)) {

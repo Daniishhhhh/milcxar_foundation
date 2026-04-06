@@ -16,12 +16,12 @@ export default function CtaBannerSection() {
         >
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             <div>
-              <p className="uppercase text-xs tracking-wide text-blue-100">Take Action Today</p>
+              <p className="uppercase text-xs tracking-wider text-blue-100">Take Action Today</p>
               <h3 className="mt-2 text-3xl sm:text-4xl font-bold">Help us reach more families with dignity and care.</h3>
               <p className="mt-3 text-blue-100 max-w-2xl">Your contribution, time, or partnership can directly support life-changing programs in education, healthcare, and livelihoods.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
-              <Button href="/donate" variant="secondary" className="!bg-white !text-blue-900 hover:!bg-blue-50">Support a Cause</Button>
+              <Button href="/donate" variant="inverse">Support a Cause</Button>
               <Button href="/volunteer" variant="outline" className="!border-white !text-white hover:!bg-white/10">Join Us</Button>
             </div>
           </div>

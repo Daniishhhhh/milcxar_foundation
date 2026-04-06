@@ -6,7 +6,7 @@ import { ReactNode } from 'react';
 
 interface ButtonProps {
   children: ReactNode;
-  variant?: 'primary' | 'secondary' | 'outline' | 'danger';
+  variant?: 'primary' | 'secondary' | 'outline' | 'inverse' | 'danger';
   size?: 'sm' | 'md' | 'lg';
   href?: string;
   onClick?: () => void;
@@ -20,6 +20,7 @@ const variantClasses = {
   primary: 'bg-blue-700 text-white hover:bg-blue-800 shadow-blue-200',
   secondary: 'bg-emerald-600 text-white hover:bg-emerald-700 shadow-emerald-200',
   outline: 'border border-blue-700 text-blue-700 hover:bg-blue-50 shadow-blue-100',
+  inverse: 'bg-white text-blue-900 hover:bg-blue-50 shadow-blue-100',
   danger: 'bg-red-600 text-white hover:bg-red-700',
 };
 
